@@ -3,16 +3,16 @@
 #include <iomanip>
 
 // Constructor Implementations
-MastersStudent::MastersStudent(Student ug, int msy):
+MastersStudent::MastersStudent(Student ug, int msy): //creates a student by building upon Student
     Student(ug), _ms_grad_year(msy) {
 	}
   
-MastersStudent::MastersStudent(std::string fn, std::string ln,
+MastersStudent::MastersStudent(std::string fn, std::string ln, //creates a student from scratch
     int ugy, int msy, Major m):
     Student(fn, ln, ugy, m), _ms_grad_year(msy) {}
 
 // New methods specific to MastersStudent
-float MastersStudent::getMsGpa() {
+float MastersStudent::getMsGpa() { //calculate the average
   	float sum = 0;
 	int i;
 	for(i=0;i<_ms_grades.size();i++){
@@ -21,10 +21,9 @@ float MastersStudent::getMsGpa() {
 	return sum / _ms_grades.size();
 }
 
-void MastersStudent::addMsGrade(float grade) {
+void MastersStudent::addMsGrade(float grade) { //adding another grade
 	_ms_grades.push_back (grade);
 	return;
-  // TODO Implement this 
 }
 
 // Override Student's printInfo to include new fields
@@ -32,5 +31,4 @@ void MastersStudent::printInfo() {
   Student::printInfo();
   std::cout << "MS " << majorString(_major) << ": " << _ms_grad_year << std::endl;
   std::cout << "MS GPA: " << std::setprecision(2) << getMsGpa() << std::endl;
-  // TODO Print additional MastersStudent fields
 }

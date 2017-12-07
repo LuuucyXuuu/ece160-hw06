@@ -58,7 +58,7 @@ std::string Student::majorString(Major m) {
 		
 }
 
-const std::string& Student::getLastName() {
+const std::string& Student::getLastName() { //used in database to access the last_name, a protected data member of the Student class
   return _last_name;
 }
 
